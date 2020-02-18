@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    Hexo</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<script src="/js/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+<main class="content">
+  <section class="jumbotron">
+  <div class="video">
+    
+      <div class="video-frame">
+        <img src="/images/ocean/overlay-hero.png" alt="Decorative image frame">
+      </div>
+    
+    <div class="video-media">
+      <video playsinline="" autoplay="" loop="" muted="" data-autoplay=""
+             poster="/images/ocean/ocean.png" x5-video-player-type="h5">
+        <source src="/images/ocean/ocean.mp4" type="video/mp4">
+        <source src="/images/ocean/ocean.ogv" type="video/ogg">
+        <source src="/images/ocean/ocean.webm" type="video/webm">
+        <p>Your user agent does not support the HTML5 Video element.</p>
+      </video>
+      <div class="video-overlay"></div>
+    </div>
+    <div class="video-inner text-center text-white">
+      <h1><a href="/">Hexo</a></h1>
+      <p></p>
+      <div><img src="/images/hexo-inverted.svg" class="brand" alt="Hexo"></div>
+    </div>
+    <div class="video-learn-more">
+      <a class="anchor" href="#landingpage"><i class="fe fe-mouse"></i></a>
+    </div>
+  </div>
+</section>
+
+<div id="landingpage">
+  <section class="outer">
+    <article class="articles">
+      
+      <h1 class="page-type-title"></h1>
+      
+        
+          
+
+<article id="post-Project-Summary" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/02/16/Project-Summary/">Project Summary</a>
+    </h2>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/02/16/Project-Summary/" class="article-date">
+  <time datetime="2020-02-16T06:53:38.000Z" itemprop="datePublished">2020-02-16</time>
+</a>
+        
+      </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <h3 id="What-is-my-project"><a href="#What-is-my-project" class="headerlink" title="What is my project?"></a>What is my project?</h3><p>Use machine learning to predict U.S stock market</p>
+<p>Use predictions of different models add different weigh to get their own strategy</p>
+<h3 id="What-are-my-research-target-and-research-method"><a href="#What-are-my-research-target-and-research-method" class="headerlink" title="What are my research target and research method?"></a>What are my research target and research method?</h3><p>Predict volatility and use volatility to decide trading strategy</p>
+<p>Machine learning</p>
+<h3 id="What-are-my-research-result-s-and-conclusion-s"><a href="#What-are-my-research-result-s-and-conclusion-s" class="headerlink" title="What are my research result(s) and conclusion(s)?"></a>What are my research result(s) and conclusion(s)?</h3><p>Our strategy has high Sortino ratio and several improvements. One is set risk free rate as benchmark. Another one is about trading cost.</p>
+<h3 id="Final-Report"><a href="#Final-Report" class="headerlink" title="Final Report"></a>Final Report</h3><p>Nowadays, more and more people are involved in the stock exchange because they are more willing to invest instead of saving. However, many people take part in the stock exchange without enough knowledge and they are bearing great risks. So, my project is to predict the volatility of the U.S stock market through machine learning. In some ways, it could be helpful to those people.</p>
+<p>The model uses Ordinary Linear Regression as the benchmark. The parameters of the model are estimated through a sample of several observations using Ordinary Least Squares (OLS).</p>
+<p>The model used regularized /shrinkage methods. Shrinkage is a type of regularization methods that involve fitting a regression model using all p predictive variables when the size of the estimated coefficient is limited. Shrinking tends to reduce the variability of the estimates, thereby improving the stability of the model. Some coefficients can even be set to zero, so variable selection is also possible. </p>
+<p>In this case, we focus on Ridge, Lasso and Elastic Net approaches. Both Ridge and Lasso regression add a penalty term for having large coefficients: Ridge is respect to the L2 norm while Lasso is respect to the L1 norm. Norm, a mathematic term which usually applied to vector, maps vector values to value in positive range (includes 0). In machine learning, norm used to express distance. The L1 norm is a limitation on the sum of beta (first order), and its available area should be a square with straight lines while the L2 is a limitation on the second-order summation of beta, and its usable area should be circular. </p>
+<p>The advantage of Ridge is it can maintain all information sources or predictions while its drawback is it has no feature selection. For Lasso, it has feature selection (simplicity &amp; better interpretability). However, it may lose some information after dropping variables by setting their coefficients to zero. So, to get both advantages and get rid of both disadvantages, we use Elastic Net approach, which is a mix of the above two approaches, which is respect to both L1 and L2. </p>
+<p>If we have a good model, it should be predictable when we have new data. We compute our statistical model from the training set, which should perform well on a new independent data set called the test set. To avoid looking ahead bias, we need a method of selecting lambdas in an organized way to minimize the mean square error (MSE). Cross-validation (CV) is a resampling method used to estimate the test mean square error of a model by repeatedly retaining a portion of observations and applying the chosen method to predict the outcome of the reservation. This is based on AIC: select lambda for each rolling window.<br>It has two kinds: leave-one-out and k-fold. And we used k-fold CV because usually a value of k between 5 and 10 indicates a good tradeoff for calculating the bias.</p>
+<p>One thing needed to be reinforced is that we measure the predictability of volatility, not return. </p>
+<p>Our strategy has several improvements. One is set risk free rate as benchmark. Another one is about trading cost: percentage of trading fee and the market impact (illiquid stock and big trade size). This means if the original is $1, $1.5 means lose money. And the reason we selected AAPL is that it has very liquid stocks and big trading volume. Sortino ratio is investor may think volatility is a good thing if returns are positive. Our strategy has high Sortino ratio (even higher than Sharpe ratio, risk-adjusted return, which is the excess return over risk free rate, per unit volatility or total risk) which is good as it can compensate other strategies in down markets.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/16/Project-Summary/" data-id="ck6r84ngm0000nov9ca7d24fd"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+        
+    </article>
+    
+  
+    
+  </section>
+</div>
+
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-bar-chart"></i> <span id="busuanzi_value_site_pv"></span></li>
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 Hexo</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank" rel="noopener">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+<aside class="sidebar">
+  <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="Hexo"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+</aside>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+
+
+<script src="/js/lazyload.min.js"></script>
+
+
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+
+
+<script src="/js/ocean.js"></script>
+
+
+</body>
+</html>
